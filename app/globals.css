@@ -1,0 +1,136 @@
+/* ===================================
+   CSS Variables - Color & Theme
+   =================================== */
+:root {
+    /* Colors - Japanese Traditional Palette */
+    --color-sumi: #1a1a1a;           /* 墨黒 */
+    --color-ai: #1e3a5f;             /* 藍 */
+    --color-ai-deep: #0f2540;        /* 深藍 */
+    --color-shiro: #fafaf8;          /* 紙白 */
+    --color-shu: #c8423d;            /* 朱 */
+    --color-kinari: #f5f3ed;         /* 生成り */
+    --color-hai: #9ca3af;            /* 灰 */
+    --color-usuzumi: #63666a;        /* 薄墨 */
+
+    /* Typography */
+    --font-serif: var(--font-serif);
+    --font-sans: var(--font-sans);
+
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+    --space-2xl: 8rem;
+
+    /* Animation */
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ===================================
+   Reset & Base
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans), sans-serif;
+    background: var(--color-shiro);
+    color: var(--color-sumi);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* Japanese Paper Texture Overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.03) 0%, transparent 50%);
+    background-size: 100% 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+/* ===================================
+   Utilities
+   =================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: var(--space-2xl) 0;
+    position: relative;
+}
+
+/* ===================================
+   Responsive
+   =================================== */
+@media (max-width: 768px) {
+    :root {
+        --space-lg: 2.5rem;
+        --space-xl: 3.5rem;
+        --space-2xl: 4rem;
+    }
+
+    html {
+        font-size: 15px;
+    }
+
+    .container {
+        padding: 0 1.25rem;
+    }
+
+    section {
+        padding: var(--space-xl) 0;
+    }
+
+    .sp-only {
+        display: inline;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --space-lg: 2rem;
+        --space-xl: 3rem;
+        --space-2xl: 3.5rem;
+    }
+
+    html {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    section {
+        padding: var(--space-lg) 0;
+    }
+}
+
+@media (min-width: 769px) {
+    .sp-only {
+        display: none;
+    }
+}

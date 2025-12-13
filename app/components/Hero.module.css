@@ -1,0 +1,268 @@
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: var(--space-xl) 2rem var(--space-lg);
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-kinari) 0%, var(--color-shiro) 100%);
+}
+
+.heroContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Vertical Text - Traditional Japanese Style */
+.heroVerticalText {
+    writing-mode: vertical-rl;
+    display: flex;
+    gap: 2rem;
+}
+
+.verticalCatchphrase,
+.verticalMain {
+    font-family: var(--font-serif), serif;
+    line-height: 1.5;
+    letter-spacing: 0.2em;
+}
+
+.verticalCatchphrase {
+    font-size: 2rem;
+    color: var(--color-ai);
+    font-weight: 400;
+}
+
+.verticalMain {
+    font-size: 4rem;
+    color: var(--color-sumi);
+    font-weight: 700;
+    position: relative;
+}
+
+.char,
+.charTomo,
+.charSmall {
+    display: inline-block;
+}
+
+.charTomo {
+    font-size: 5rem;
+    color: var(--color-shu);
+}
+
+.charSmall {
+    font-size: 2.5rem;
+}
+
+/* Hero Content */
+.heroContent {
+    max-width: 600px;
+}
+
+.heroSubtitle {
+    font-family: var(--font-serif), serif;
+    font-size: 1.5rem;
+    color: var(--color-ai-deep);
+    margin-bottom: var(--space-md);
+    line-height: 1.8;
+}
+
+.heroDescription {
+    margin-bottom: var(--space-lg);
+}
+
+.heroDescription p {
+    color: var(--color-usuzumi);
+    font-size: 1rem;
+    line-height: 2;
+}
+
+.heroCta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-sans), sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.btnPrimary {
+    background: var(--color-ai);
+    color: var(--color-shiro);
+    box-shadow: 0 4px 12px rgba(30, 58, 95, 0.15);
+}
+
+.btnPrimary:hover {
+    background: var(--color-ai-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(30, 58, 95, 0.25);
+}
+
+.btnSecondary {
+    background: transparent;
+    color: var(--color-ai);
+    border: 2px solid var(--color-ai);
+}
+
+.btnSecondary:hover {
+    background: var(--color-ai);
+    color: var(--color-shiro);
+    transform: translateY(-2px);
+}
+
+.btnNote {
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-top: 0.25rem;
+    opacity: 0.9;
+}
+
+/* Hero Decoration */
+.heroDecoration {
+    position: absolute;
+    top: 10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(30, 58, 95, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-30px, 30px) scale(1.1); }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: 5rem 1rem 3rem;
+    }
+
+    .heroContainer {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .heroVerticalText {
+        writing-mode: horizontal-tb;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .verticalCatchphrase,
+    .verticalMain {
+        writing-mode: horizontal-tb;
+    }
+
+    .verticalCatchphrase {
+        font-size: 1.25rem;
+        letter-spacing: 0.15em;
+    }
+
+    .verticalMain {
+        font-size: 2.25rem;
+        letter-spacing: 0.1em;
+    }
+
+    .charTomo {
+        font-size: 3rem;
+    }
+
+    .charSmall {
+        font-size: 1.75rem;
+    }
+
+    .heroContent {
+        text-align: center;
+    }
+
+    .heroSubtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .heroDescription {
+        margin-bottom: 2rem;
+    }
+
+    .heroDescription p {
+        font-size: 0.95rem;
+        line-height: 1.9;
+    }
+
+    .heroCta {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .heroCta .btn {
+        width: 100%;
+        padding: 1.1rem 2rem;
+        font-size: 1rem;
+    }
+
+    .heroDecoration {
+        width: 300px;
+        height: 300px;
+        right: -30%;
+        top: 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 4.5rem 1rem 2.5rem;
+    }
+
+    .verticalCatchphrase {
+        font-size: 1.1rem;
+    }
+
+    .verticalMain {
+        font-size: 2rem;
+    }
+
+    .charTomo {
+        font-size: 2.5rem;
+    }
+
+    .charSmall {
+        font-size: 1.5rem;
+    }
+
+    .heroSubtitle {
+        font-size: 1rem;
+    }
+
+    .heroDescription p {
+        font-size: 0.9rem;
+    }
+}

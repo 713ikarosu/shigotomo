@@ -1,0 +1,201 @@
+.service {
+    background: var(--color-shiro);
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.sectionTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.titleEn {
+    font-family: var(--font-serif), serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-shu);
+    font-weight: 400;
+}
+
+.titleJa {
+    font-family: var(--font-serif), serif;
+    font-size: 2.5rem;
+    color: var(--color-ai-deep);
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.titleJa::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--color-shu);
+}
+
+.servicePhilosophy {
+    margin-bottom: var(--space-lg);
+}
+
+.philosophyCard {
+    background: var(--color-kinari);
+    padding: var(--space-lg);
+    border-left: 4px solid var(--color-ai);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.philosophyCard h3 {
+    font-family: var(--font-serif), serif;
+    font-size: 1.8rem;
+    color: var(--color-ai-deep);
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+}
+
+.philosophyCard p {
+    color: var(--color-usuzumi);
+    margin-bottom: 1rem;
+    line-height: 2;
+}
+
+.philosophyCard p:last-child {
+    margin-bottom: 0;
+}
+
+.serviceFeatures {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+}
+
+.featureCard {
+    background: var(--color-shiro);
+    padding: var(--space-md);
+    border: 1px solid rgba(30, 58, 95, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.featureCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--color-shu);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s var(--transition-smooth);
+}
+
+.featureCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.featureCard:hover::before {
+    transform: scaleX(1);
+}
+
+.featureIcon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.featureCard h4 {
+    font-family: var(--font-serif), serif;
+    font-size: 1.2rem;
+    color: var(--color-ai-deep);
+    margin-bottom: 1rem;
+}
+
+.featureCard p {
+    color: var(--color-usuzumi);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .philosophyCard {
+        padding: var(--space-md);
+    }
+
+    .philosophyCard h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .philosophyCard p {
+        font-size: 0.95rem;
+        line-height: 1.9;
+    }
+
+    .serviceFeatures {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .featureCard {
+        padding: 1.5rem;
+    }
+
+    .featureIcon {
+        font-size: 2.25rem;
+    }
+
+    .featureCard h4 {
+        font-size: 1.1rem;
+    }
+
+    .featureCard p {
+        font-size: 0.9rem;
+    }
+
+    .titleJa {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .philosophyCard {
+        padding: 1.5rem;
+    }
+
+    .philosophyCard h3 {
+        font-size: 1.35rem;
+    }
+
+    .philosophyCard p {
+        font-size: 0.9rem;
+    }
+
+    .featureCard {
+        padding: 1.25rem;
+    }
+
+    .featureIcon {
+        font-size: 2rem;
+    }
+
+    .featureCard h4 {
+        font-size: 1rem;
+    }
+
+    .featureCard p {
+        font-size: 0.85rem;
+    }
+}

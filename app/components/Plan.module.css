@@ -1,0 +1,307 @@
+.plan {
+    background: linear-gradient(180deg, var(--color-kinari) 0%, var(--color-shiro) 100%);
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.sectionTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.titleEn {
+    font-family: var(--font-serif), serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-shu);
+    font-weight: 400;
+}
+
+.titleJa {
+    font-family: var(--font-serif), serif;
+    font-size: 2.5rem;
+    color: var(--color-ai-deep);
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.titleJa::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--color-shu);
+}
+
+.planCard {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--color-shiro);
+    border: 2px solid var(--color-ai);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    box-shadow: 0 8px 32px rgba(30, 58, 95, 0.12);
+    position: relative;
+}
+
+.planBadge {
+    position: absolute;
+    top: -12px;
+    left: var(--space-md);
+    background: var(--color-shu);
+    color: var(--color-shiro);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.planHeader {
+    text-align: center;
+    padding: var(--space-md) 0;
+    border-bottom: 2px solid var(--color-kinari);
+    margin-bottom: var(--space-md);
+}
+
+.planHeader h3 {
+    font-family: var(--font-serif), serif;
+    font-size: 2rem;
+    color: var(--color-ai-deep);
+    margin-bottom: 1rem;
+}
+
+.planPrice {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.priceAmount {
+    font-family: var(--font-serif), serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--color-shu);
+}
+
+.priceUnit {
+    font-size: 1.2rem;
+    color: var(--color-usuzumi);
+}
+
+.planLimit {
+    background: rgba(200, 66, 61, 0.1);
+    border-left: 4px solid var(--color-shu);
+    padding: 1rem 1.5rem;
+    margin-bottom: var(--space-md);
+    border-radius: 4px;
+}
+
+.planLimit p {
+    color: var(--color-shu);
+    font-weight: 600;
+    margin: 0;
+}
+
+.planContent h4 {
+    font-family: var(--font-serif), serif;
+    font-size: 1.3rem;
+    color: var(--color-ai-deep);
+    margin-bottom: 1rem;
+    margin-top: var(--space-md);
+}
+
+.planFeatures {
+    list-style: none;
+    margin-bottom: var(--space-md);
+}
+
+.planFeatures li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-kinari);
+    transition: background 0.2s var(--transition-smooth);
+}
+
+.planFeatures li:hover {
+    background: rgba(30, 58, 95, 0.02);
+}
+
+.planFeatures li:last-child {
+    border-bottom: none;
+}
+
+.featureTitle {
+    font-weight: 700;
+    color: var(--color-ai);
+    font-size: 1rem;
+}
+
+.featureTitle::before {
+    content: '✓';
+    color: var(--color-shu);
+    margin-right: 0.5rem;
+    font-weight: 700;
+}
+
+.featureDesc {
+    color: var(--color-usuzumi);
+    font-size: 0.9rem;
+    padding-left: 1.5rem;
+}
+
+.planNote {
+    background: var(--color-kinari);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: var(--space-md) 0;
+}
+
+.planNote p {
+    color: var(--color-usuzumi);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.planNote p:last-child {
+    margin-bottom: 0;
+}
+
+.planFuture {
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 2px dashed var(--color-kinari);
+}
+
+.planFuture h5 {
+    font-family: var(--font-serif), serif;
+    font-size: 1.1rem;
+    color: var(--color-ai);
+    margin-bottom: 0.75rem;
+}
+
+.futureNote {
+    color: var(--color-usuzumi);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.planCta {
+    text-align: center;
+    margin-top: var(--space-lg);
+}
+
+.btnPrimary {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 3rem;
+    background: var(--color-ai);
+    color: var(--color-shiro);
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-sans), sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s var(--transition-smooth);
+    box-shadow: 0 4px 12px rgba(30, 58, 95, 0.15);
+}
+
+.btnPrimary:hover {
+    background: var(--color-ai-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(30, 58, 95, 0.25);
+}
+
+@media (max-width: 768px) {
+    .titleJa {
+        font-size: 2rem;
+    }
+
+    .planCard {
+        padding: var(--space-md);
+    }
+
+    .planBadge {
+        left: 1rem;
+        font-size: 0.8rem;
+        padding: 0.4rem 1.25rem;
+    }
+
+    .planHeader h3 {
+        font-size: 1.75rem;
+    }
+
+    .priceAmount {
+        font-size: 3rem;
+    }
+
+    .priceUnit {
+        font-size: 1.1rem;
+    }
+
+    .planContent h4 {
+        font-size: 1.2rem;
+    }
+
+    .featureTitle {
+        font-size: 0.95rem;
+    }
+
+    .featureDesc {
+        font-size: 0.85rem;
+        padding-left: 1.25rem;
+    }
+
+    .planNote {
+        padding: 1.25rem;
+    }
+
+    .planNote p {
+        font-size: 0.9rem;
+    }
+
+    .btnPrimary {
+        width: 100%;
+        padding: 1.1rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .planCard {
+        padding: 1.5rem 1rem;
+    }
+
+    .planHeader h3 {
+        font-size: 1.5rem;
+    }
+
+    .priceAmount {
+        font-size: 2.5rem;
+    }
+
+    .planLimit {
+        padding: 0.85rem 1.25rem;
+    }
+
+    .planLimit p {
+        font-size: 0.9rem;
+    }
+}

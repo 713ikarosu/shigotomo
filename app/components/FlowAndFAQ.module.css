@@ -1,0 +1,254 @@
+/* Flow Section */
+.flow {
+    background: var(--color-shiro);
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.sectionTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.titleEn {
+    font-family: var(--font-serif), serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-shu);
+    font-weight: 400;
+}
+
+.titleJa {
+    font-family: var(--font-serif), serif;
+    font-size: 2.5rem;
+    color: var(--color-ai-deep);
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.titleJa::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--color-shu);
+}
+
+.flowSteps {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.flowStep {
+    flex: 1;
+    min-width: 160px;
+    max-width: 180px;
+    background: var(--color-kinari);
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid var(--color-ai);
+    transition: all 0.3s var(--transition-smooth);
+}
+
+.flowStep:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(30, 58, 95, 0.15);
+    border-color: var(--color-shu);
+}
+
+.stepNumber {
+    font-family: var(--font-serif), serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-shu);
+    margin-bottom: 1rem;
+}
+
+.stepContent h4 {
+    font-family: var(--font-serif), serif;
+    font-size: 1rem;
+    color: var(--color-ai-deep);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.stepContent p {
+    font-size: 0.85rem;
+    color: var(--color-usuzumi);
+    line-height: 1.6;
+}
+
+.flowArrow {
+    font-size: 1.5rem;
+    color: var(--color-ai);
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+/* FAQ Section */
+.faq {
+    background: var(--color-kinari);
+}
+
+.faqList {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faqItem {
+    background: var(--color-shiro);
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s var(--transition-smooth);
+}
+
+.faqItem:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.faqQuestion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s var(--transition-smooth);
+}
+
+.faqQuestion:hover {
+    background: rgba(30, 58, 95, 0.02);
+}
+
+.faqQuestion h4 {
+    font-family: var(--font-serif), serif;
+    font-size: 1.1rem;
+    color: var(--color-ai-deep);
+    font-weight: 600;
+    flex: 1;
+    padding-right: 1rem;
+}
+
+.faqToggle {
+    font-size: 1.5rem;
+    color: var(--color-shu);
+    font-weight: 700;
+    transition: transform 0.3s var(--transition-smooth);
+    flex-shrink: 0;
+}
+
+.faqItem.active .faqToggle {
+    transform: rotate(45deg);
+}
+
+.faqAnswer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s var(--transition-smooth);
+}
+
+.faqItem.active .faqAnswer {
+    max-height: 500px;
+}
+
+.faqAnswer p {
+    padding: 0 1.5rem 1.5rem;
+    color: var(--color-usuzumi);
+    line-height: 2;
+}
+
+@media (max-width: 768px) {
+    .flowSteps {
+        flex-direction: column;
+    }
+
+    .flowStep {
+        max-width: 100%;
+        padding: 1.25rem 1rem;
+    }
+
+    .flowArrow {
+        transform: rotate(90deg);
+        margin: 0.5rem 0;
+    }
+
+    .stepNumber {
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .stepContent h4 {
+        font-size: 0.95rem;
+    }
+
+    .stepContent p {
+        font-size: 0.85rem;
+    }
+
+    .faqQuestion {
+        padding: 1.25rem;
+    }
+
+    .faqQuestion h4 {
+        font-size: 1rem;
+    }
+
+    .faqAnswer p {
+        padding: 0 1.25rem 1.25rem;
+        font-size: 0.9rem;
+        line-height: 1.9;
+    }
+
+    .titleJa {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .flowStep {
+        padding: 1rem 0.85rem;
+    }
+
+    .stepNumber {
+        font-size: 1.5rem;
+    }
+
+    .stepContent h4 {
+        font-size: 0.9rem;
+    }
+
+    .stepContent p {
+        font-size: 0.8rem;
+    }
+
+    .faqQuestion {
+        padding: 1rem;
+    }
+
+    .faqQuestion h4 {
+        font-size: 0.95rem;
+    }
+
+    .faqAnswer p {
+        padding: 0 1rem 1rem;
+        font-size: 0.85rem;
+    }
+}
