@@ -53,9 +53,10 @@ LP（ランディングページ）の初期実装・テキストブラッシュ
   - 現在はモーダル内フォームのみ（送信先未設定）
   - Googleフォームへのリダイレクト or embed に変更
 
-- [ ] **SEO対応**
-  - `app/layout.tsx` のメタタグ整備（title・description・OGP）
-  - OGP画像の設定（`shigotomo-logo.png` を活用）
+- [x] **SEO対応**
+  - `app/layout.tsx` のメタタグ整備（title・description・keywords・robots）
+  - OGP / Twitter Card 設定（`public/og-image.png` を配置）
+  - サイトURLは環境変数 `NEXT_PUBLIC_SITE_URL` で管理（Vercelで設定すること）
 
 ### 中優先度
 - [ ] **月額ルール・利用規約・キャンセルポリシーの掲載**
@@ -94,5 +95,6 @@ LP（ランディングページ）の初期実装・テキストブラッシュ
 
 | 日付 | 内容 |
 |------|------|
+| 2026-02-25 | SEO対応（メタタグ・OGP・Twitter Card） |
 | 2026-02-25 | docs/ 新設・CLAUDE.md 作成・LPテキスト全体ブラッシュアップ |
 | 2025-12-15 | LP初期実装完了・Vercelデプロイ |
