@@ -22,16 +22,19 @@ export default function ApplySection() {
             transition={{ duration: 0.6 }}
           >
             <h2>
-              学びを続ける力を、<br className="sp-only" />一緒に育てませんか?
+              仕組みで、続ける。<br className="sp-only" />一緒に始めませんか?
             </h2>
-            <p>シゴトモは、あなたの明日の仕事に寄り添う伴走者です。</p>
+            <p>
+              根性でもモチベーションでもなく、設計で学習を続けたい方へ。<br />
+              まずは事前アンケートから、あなたの状況を聞かせてください。
+            </p>
             <button
               className={styles.btnPrimary}
               onClick={() => setIsFormOpen(true)}
             >
-              <span>お申し込みフォームを開く</span>
+              <span>事前アンケートに回答する</span>
             </button>
-            <p className={styles.applyNote}>※人数制限があります。お早めにお申し込みください。</p>
+            <p className={styles.applyNote}>※月15〜20名の人数制限あり。定員に達した場合はお待ちいただきます。</p>
           </motion.div>
         </div>
       </section>

@@ -73,8 +73,8 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.5 }}
           >
-            働きながらの学び直しを、<br />
-            あなたの隣で支える伴走型教育支援サービス
+            勉強内容ではなく、<br />
+            勉強が続く「設計」を提供するサービスです。
           </motion.p>
 
           <motion.div
@@ -84,10 +84,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 1.8 }}
           >
             <p>
-              資格取得、リスキリング、スキルアップ。<br />
-              仕事をしながら学び続けることは、簡単ではありません。<br />
-              シゴトモは、勉強内容を教えるのではなく、<br className="sp-only" />
-              あなたの学習計画・習慣・進捗を伴走します。
+              やる気の出し方も、根性論も、扱いません。<br />
+              シゴトモがサポートするのは、学習計画・習慣・進捗管理。<br className="sp-only" />
+              「今日やること」が毎日決まっている状態をつくります。
             </p>
           </motion.div>
 

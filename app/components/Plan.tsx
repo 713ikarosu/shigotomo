@@ -8,19 +8,23 @@ import styles from './Plan.module.css'
 const features = [
   {
     title: '初回ヒアリング',
-    desc: 'Googleフォームで目標・現状を詳しくお聞きします',
+    desc: 'LINE通話（20〜30分）で目標・生活状況・学習環境を確認します',
   },
   {
     title: '月次学習計画作成',
-    desc: 'あなた専用の実現可能な学習プランを設計',
+    desc: '「毎日、今日やること」が分かる形でプランを設計・共有します',
   },
   {
     title: '毎日の学習報告',
-    desc: 'フォームで簡単報告。習慣化をサポート',
+    desc: '1分でできるフォーム報告。習慣化の継続を管理します',
   },
   {
     title: '週1回の進捗チェック',
-    desc: '簡易フィードバックと計画調整',
+    desc: '達成度コメントと翌週の改善ポイントを提示します',
+  },
+  {
+    title: '質問受付（週3まで）',
+    desc: '学習方法・計画・モチベ維持に関する質問のみ対応します',
   },
 ]
 
@@ -53,8 +57,8 @@ export default function Plan() {
           <div className={styles.planHeader}>
             <h3>ライトプラン</h3>
             <div className={styles.planPrice}>
-              <span className={styles.priceAmount}>3,000</span>
-              <span className={styles.priceUnit}>円/月</span>
+              <span className={styles.priceAmount}>2,980</span>
+              <span className={styles.priceUnit}>円/月（税込）</span>
             </div>
           </div>
 
@@ -74,8 +78,8 @@ export default function Plan() {
             </ul>
 
             <div className={styles.planNote}>
-              <p><strong>※ 学習内容の解説や添削は行いません</strong></p>
-              <p>このプランの目的は「学習習慣の定着」と「継続できる力を育てる」ことです。</p>
+              <p><strong>※ 問題の解説・添削・毎日フィードバック・電話/ビデオ通話は対象外です</strong></p>
+              <p>ライトプランは「習慣化と計画管理」に特化したプランです。<br />勉強が続く仕組みをつくることにフォーカスします。</p>
             </div>
 
             <div className={styles.planFuture}>
