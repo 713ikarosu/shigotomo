@@ -31,6 +31,8 @@ const features = [
 export default function Service() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const aboutRef = useRef(null)
+  const isAboutInView = useInView(aboutRef, { once: true, amount: 0.3 })
 
   return (
     <section id="service" className={styles.service} ref={ref}>
@@ -88,9 +90,10 @@ export default function Service() {
 
         <motion.div
           className={styles.serviceAbout}
+          ref={aboutRef}
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          animate={isAboutInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
         >
           <div className={styles.aboutCard}>
             <div className={styles.aboutLabel}>運営者について</div>

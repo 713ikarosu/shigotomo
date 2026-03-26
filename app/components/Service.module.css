@@ -47,11 +47,15 @@
     margin-bottom: var(--space-lg);
 }
 
-.philosophyCard {
+.infoCard {
     background: var(--color-kinari);
     padding: var(--space-lg);
-    border-left: 4px solid var(--color-ai);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.philosophyCard {
+    composes: infoCard;
+    border-left: 4px solid var(--color-ai);
 }
 
 .philosophyCard h3 {
@@ -134,11 +138,8 @@
 }
 
 .aboutCard {
-    background: var(--color-kinari);
-    padding: var(--space-lg);
+    composes: infoCard;
     border-right: 4px solid var(--color-ai);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-    position: relative;
 }
 
 .aboutLabel {
