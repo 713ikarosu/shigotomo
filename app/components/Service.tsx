@@ -24,7 +24,7 @@ const features = [
   {
     icon: '🤝',
     title: '医師×教育の視点',
-    description: '医師と元教師が関与。生活習慣・メンタル面も含めた、総合的な学習伴走を実現します。',
+    description: '医師と元教師が設計に関与。「なぜ忙しい人ほど学習が続かないか」を行動・生活習慣の視点で分析し、根性に頼らない継続の仕組みをつくります。',
   },
 ]
 
@@ -85,6 +85,32 @@ export default function Service() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          className={styles.serviceAbout}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
+          <div className={styles.aboutCard}>
+            <div className={styles.aboutLabel}>運営者について</div>
+            <h3>医師として、自分自身が「続けられない」を経験した</h3>
+            <p>
+              医師として働きながら、資格取得や学び直しに何度も取り組んできました。
+              時間はある。意欲もある。でも、気づけば計画倒れになっている。
+            </p>
+            <p>
+              そこで気づいたのは、「続かない」のは意志の問題ではなく、
+              設計の問題だということ。
+              学習計画と習慣の仕組みを整えた途端、勉強は無理なく続くようになりました。
+            </p>
+            <p>
+              その経験をもとに、同じ悩みを持つ忙しい社会人のために、
+              シゴトモを立ち上げました。
+              「先生」ではなく、「設計者・伴走者」として、あなたの学習を支えます。
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

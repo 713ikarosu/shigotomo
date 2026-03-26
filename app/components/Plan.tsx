@@ -22,10 +22,6 @@ const features = [
     title: '週1回の進捗チェック',
     desc: '達成度コメントと翌週の改善ポイントを提示します',
   },
-  {
-    title: '質問受付（週3まで）',
-    desc: '学習方法・計画・モチベ維持に関する質問のみ対応します',
-  },
 ]
 
 export default function Plan() {
@@ -78,7 +74,7 @@ export default function Plan() {
             </ul>
 
             <div className={styles.planNote}>
-              <p><strong>※ 問題の解説・添削・毎日フィードバック・電話/ビデオ通話は対象外です</strong></p>
+              <p><strong>※ 問題の解説・添削・質問対応・毎日フィードバック・電話/ビデオ通話は対象外です</strong></p>
               <p>ライトプランは「習慣化と計画管理」に特化したプランです。<br />勉強が続く仕組みをつくることにフォーカスします。</p>
             </div>
 
