@@ -1,0 +1,57 @@
+---
+import styles from './Navigation.module.css'
+---
+
+<nav class={styles.nav} id="main-nav">
+  <div class={styles.navContainer}>
+    <div class={styles.navLogo}>
+      <span class={styles.logoText}>シゴトモ</span>
+    </div>
+
+    <div class={styles.navLinks}>
+      <a href="#service">サービス</a>
+      <a href="#plan">プラン</a>
+      <a href="#flow">ご利用の流れ</a>
+      <a href="#faq">FAQ</a>
+      <a href="#apply" class={styles.navCta}>お申し込み</a>
+    </div>
+
+    <button
+      class={styles.mobileMenuButton}
+      id="mobile-menu-btn"
+      aria-label="メニュー"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class={styles.mobileMenu} id="mobile-menu">
+    <a href="#service">サービス</a>
+    <a href="#plan">プラン</a>
+    <a href="#flow">ご利用の流れ</a>
+    <a href="#faq">FAQ</a>
+    <a href="#apply" class={styles.mobileNavCta}>お申し込み</a>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn')!
+  const menu = document.getElementById('mobile-menu')!
+
+  btn.addEventListener('click', () => {
+    const isOpen = btn.classList.toggle('open')
+    btn.setAttribute('aria-expanded', String(isOpen))
+    menu.classList.toggle('is-open', isOpen)
+  })
+
+  menu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      btn.classList.remove('open')
+      btn.setAttribute('aria-expanded', 'false')
+      menu.classList.remove('is-open')
+    })
+  })
+</script>

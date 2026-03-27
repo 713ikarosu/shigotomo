@@ -1,0 +1,72 @@
+---
+import styles from './FlowAndFAQ.module.css'
+
+const faqs = [
+  {
+    question: 'どんな人が対象ですか?',
+    answer: '仕事が忙しくて勉強が続かない社会人のためのサービスです。資格取得・リスキリング・語学など目標は問いませんが、「時間があれば勉強できる気がするのに続かない」「何度も計画倒れになっている」という方に特に向いています。励ましや精神論を求める方よりも、仕組みで着実に進みたい方のためのサービスです。',
+  },
+  {
+    question: 'これまで何度も挫折してきましたが大丈夫ですか?',
+    answer: 'むしろ、そのような方のためのサービスです。一人で続けられなかったのは意志の問題ではなく、仕組みがなかったからです。シゴトモは「毎日やること」を設計し、進捗を外部から管理することで、続けられる環境をつくります。',
+  },
+  {
+    question: '忙しくても使えますか?',
+    answer: 'はい。忙しい社会人を前提に設計しています。学習報告は1分でできるフォーム入力です。学習計画も、あなたの実際の生活リズムをもとに「現実的に確保できる時間」で設計するため、無理な計画にはなりません。',
+  },
+  {
+    question: '勉強内容を教えてもらえますか?',
+    answer: 'いいえ。ライトプランでは問題の解説・添削・専門的な指導は行いません。シゴトモの役割は「学習習慣・計画・進捗の管理」です。勉強内容は教材や講座で自分で学ぶ前提で、その学びが続く仕組みをつくるのが私たちの仕事です。',
+  },
+  {
+    question: 'どんな資格・学習内容でも対応できますか?',
+    answer: '資格試験・リスキリング・語学・スキルアップなど、学習内容は問いません。シゴトモは内容を問わず、あなたの目標に合わせた計画設計と進捗管理を行います。',
+  },
+  {
+    question: '人数制限とはどういうことですか?',
+    answer: 'ライトプランは月15〜20名までの少人数制です。丁寧な伴走の品質を保つために、受け入れ人数を限定しています。定員に達した場合は、空きが出るまでお待ちいただきます。',
+  },
+  {
+    question: '解約はできますか?',
+    answer: 'はい、月単位での解約が可能です。日割り・返金はありません。解約は次回更新日前日までにご自身で手続きください。詳細はお申し込み後の案内でご確認いただけます。',
+  },
+  {
+    question: 'プレミアムプランとは何ですか?',
+    answer: 'ライトプランで一定期間継続できた方のみを、こちらから招待する上位プランです。毎日のフィードバック・週1回の面談・キャリアや生活習慣まで含めた完全オーダーメイド支援を提供予定です。申し込みは受け付けておらず、招待制となります。',
+  },
+]
+---
+
+<section id="faq" class={styles.faq}>
+  <div class="container">
+    <div class={styles.sectionHeader} data-animate>
+      <h2 class={styles.sectionTitle}>
+        <span class={styles.titleEn}>FAQ</span>
+        <span class={styles.titleJa}>よくある質問</span>
+      </h2>
+    </div>
+
+    <div class={styles.faqList}>
+      {faqs.map((faq, index) => (
+        <div class={styles.faqItem} data-faq-item data-animate data-delay={String(0.2 + index * 0.05)}>
+          <div class={styles.faqQuestion} data-faq-question>
+            <h4>Q. {faq.question}</h4>
+            <span class={styles.faqToggle}>+</span>
+          </div>
+          <div class={styles.faqAnswer}>
+            <p>{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-faq-item]').forEach((item) => {
+    const question = item.querySelector('[data-faq-question]')!
+    question.addEventListener('click', () => {
+      item.classList.toggle('active')
+    })
+  })
+</script>

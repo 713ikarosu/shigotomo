@@ -1,5 +1,3 @@
-'use client'
-
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import styles from './Navigation.module.css'
@@ -7,13 +5,8 @@ import styles from './Navigation.module.css'
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false)
-  }
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen)
+  const closeMobileMenu = () => setIsMobileMenuOpen(false)
 
   return (
     <motion.nav
@@ -27,7 +20,6 @@ export default function Navigation() {
           <span className={styles.logoText}>シゴトモ</span>
         </div>
 
-        {/* Desktop Navigation */}
         <div className={styles.navLinks}>
           <a href="#service">サービス</a>
           <a href="#plan">プラン</a>
@@ -36,7 +28,6 @@ export default function Navigation() {
           <a href="#apply" className={styles.navCta}>お申し込み</a>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           className={`${styles.mobileMenuButton} ${isMobileMenuOpen ? styles.open : ''}`}
           onClick={toggleMobileMenu}
@@ -48,7 +39,6 @@ export default function Navigation() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div

@@ -13,8 +13,8 @@
     --color-usuzumi: #63666a;        /* 薄墨 */
 
     /* Typography */
-    --font-serif: var(--font-serif);
-    --font-sans: var(--font-sans);
+    --font-serif: 'Noto Serif JP';
+    --font-sans: 'Noto Sans JP';
 
     /* Spacing */
     --space-xs: 0.5rem;
@@ -80,6 +80,20 @@ body::before {
 section {
     padding: var(--space-2xl) 0;
     position: relative;
+}
+
+/* ===================================
+   Scroll Animations
+   =================================== */
+[data-animate] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-animate].is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ===================================

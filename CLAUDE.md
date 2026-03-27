@@ -14,10 +14,11 @@
 
 ## 技術スタック
 
-- **フレームワーク**: Next.js 15 (App Router)
+- **フレームワーク**: Astro 6（静的サイト生成）
 - **言語**: TypeScript
-- **アニメーション**: Framer Motion
+- **アニメーション**: CSS keyframes + Intersection Observer（外部ライブラリなし）
 - **スタイリング**: CSS Modules
+- **Node.js**: 22（mise.toml で管理）
 - **デプロイ**: Vercel
 
 ---
@@ -25,34 +26,47 @@
 ## ディレクトリ構成
 
 ```
-app/
-├── components/     # Reactコンポーネント（各セクション）
-├── globals.css     # CSS変数・グローバルスタイル
-├── layout.tsx      # ルートレイアウト
-└── page.tsx        # トップページ
-docs/               # プロジェクトドキュメント
+src/
+├── components/     # Astroコンポーネント（各セクション）
+│   ├── Navigation.astro   # ナビ（バニラJS・モバイルメニュー）
+│   ├── Hero.astro
+│   ├── Service.astro
+│   ├── Plan.astro
+│   ├── Flow.astro
+│   ├── FAQ.astro          # アコーディオン（バニラJS）
+│   ├── ApplySection.astro
+│   ├── Footer.astro
+│   └── *.module.css       # CSS Modules
+├── layouts/
+│   └── Layout.astro       # ベースレイアウト（メタ・フォント・preload）
+├── pages/
+│   └── index.astro        # トップページ
+└── styles/
+    └── global.css         # CSS変数・グローバルスタイル
+public/
+├── hero.avif / hero.webp / hero.png   # ヒーロー画像（最適化済み）
+├── og-image.png
+└── favicon.png
+docs/                      # プロジェクトドキュメント
 ```
-
-コンポーネント一覧 → [`docs/architecture.md`](./docs/architecture.md)
 
 ---
 
 ## 開発コマンド
 
 ```bash
-npm run dev      # 開発サーバー起動（http://localhost:3000）
+npm run dev      # 開発サーバー起動（http://localhost:4321）
 npm run build    # プロダクションビルド
-npm run start    # プロダクション起動
-npm run lint     # Lintチェック
+npm run preview  # ビルド結果をプレビュー
 ```
 
 ---
 
 ## デザインルール
 
-- CSS変数は `app/globals.css` で一元管理（`--color-ai`, `--color-shu` 等）
+- CSS変数は `src/styles/global.css` で一元管理（`--color-ai`, `--color-shu` 等）
 - カラーパレット・ブレークポイント → [`docs/design.md`](./docs/design.md)
-- モバイル対応必須：`input { font-size: 16px }` でiOSズーム防止
+- モバイル対応必須
 
 ---
 
@@ -74,4 +88,4 @@ npm run lint     # Lintチェック
 - 人数制限（15〜20名）は LP 上に明示する重要な要素
 - ライトプランは「問題解説・添削・毎日フィードバック・電話/ビデオ通話」は対象外
 - 決済・会員管理は当初は外部ツールで対応（実装不要）
-- `index.html` / `styles.css` は初期の静的プロトタイプ（参考資料として残存）
+- **GoogleフォームURL**: `src/components/ApplySection.astro` の `GOOGLE_FORM_URL` に設定（TODO）

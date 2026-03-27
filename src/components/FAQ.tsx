@@ -1,17 +1,5 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import styles from './FlowAndFAQ.module.css'
-
-const steps = [
-  { number: '01', title: '事前アンケート回答', description: 'Googleフォームから目標・学習環境・生活状況などを入力いただきます。送信後、自動返信メールで今後の流れをご案内します。' },
-  { number: '02', title: '公式LINEで日程調整', description: 'ご案内に沿って公式LINEを追加いただき、初回面談の日時を調整します。' },
-  { number: '03', title: '初回面談（LINE通話）', description: 'LINE通話（20〜30分）で現状・目標・生活リズムを確認します。ここで相互に合う方のみ、利用開始となります。' },
-  { number: '04', title: '学習計画の作成・共有', description: 'ヒアリング内容をもとに、「毎日やること」が明確なオリジナル学習計画を作成・共有します。' },
-  { number: '05', title: '伴走スタート', description: '毎日の学習報告フォームへの入力と、週1回の進捗チェックで継続をサポートします。' },
-]
 
 const faqs = [
   {
@@ -48,61 +36,7 @@ const faqs = [
   },
 ]
 
-export function Flow() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
-
-  return (
-    <section id="flow" className={styles.flow} ref={ref}>
-      <div className="container">
-        <motion.div
-          className={styles.sectionHeader}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className={styles.sectionTitle}>
-            <span className={styles.titleEn}>Flow</span>
-            <span className={styles.titleJa}>ご利用の流れ</span>
-          </h2>
-        </motion.div>
-
-        <div className={styles.flowSteps}>
-          {steps.map((step, index) => (
-            <div key={index}>
-              <motion.div
-                className={styles.flowStep}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              >
-                <div className={styles.stepNumber}>{step.number}</div>
-                <div className={styles.stepContent}>
-                  <h4>{step.title}</h4>
-                  <p>{step.description}</p>
-                </div>
-              </motion.div>
-              {index < steps.length - 1 && (
-                <motion.div
-                  className={styles.flowArrow}
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : {}}
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                >
-                  →
-                </motion.div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-export function FAQ() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
   const toggleFAQ = (index: number) => {
@@ -110,28 +44,20 @@ export function FAQ() {
   }
 
   return (
-    <section id="faq" className={styles.faq} ref={ref}>
+    <section id="faq" className={styles.faq}>
       <div className="container">
-        <motion.div
-          className={styles.sectionHeader}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
+        <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.titleEn}>FAQ</span>
             <span className={styles.titleJa}>よくある質問</span>
           </h2>
-        </motion.div>
+        </div>
 
         <div className={styles.faqList}>
           {faqs.map((faq, index) => (
-            <motion.div
+            <div
               key={index}
               className={`${styles.faqItem} ${activeIndex === index ? styles.active : ''}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.05 }}
             >
               <div className={styles.faqQuestion} onClick={() => toggleFAQ(index)}>
                 <h4>Q. {faq.question}</h4>
@@ -140,7 +66,7 @@ export function FAQ() {
               <div className={styles.faqAnswer}>
                 <p>{faq.answer}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
