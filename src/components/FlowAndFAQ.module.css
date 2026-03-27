@@ -47,7 +47,7 @@
 .flowSteps {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     gap: 1rem;
     max-width: 1000px;
@@ -64,6 +64,9 @@
     text-align: center;
     border: 2px solid var(--color-ai);
     transition: all 0.3s var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .flowStep:hover {
@@ -99,6 +102,11 @@
     color: var(--color-ai);
     font-weight: 700;
     flex-shrink: 0;
+    align-self: center;
+}
+
+.flowArrow::before {
+    content: '→';
 }
 
 /* FAQ Section */
@@ -186,8 +194,11 @@
     }
 
     .flowArrow {
-        transform: rotate(90deg);
         margin: 0.5rem 0;
+    }
+
+    .flowArrow::before {
+        content: '↓';
     }
 
     .stepNumber {

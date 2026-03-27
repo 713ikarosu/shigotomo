@@ -34,9 +34,7 @@ const steps = [
             </div>
           </div>
           {index < steps.length - 1 && (
-            <div class={styles.flowArrow} data-animate data-delay={String(0.3 + index * 0.1)}>
-              →
-            </div>
+            <div class={styles.flowArrow} data-animate data-delay={String(0.3 + index * 0.1)} />
           )}
         </>
       ))}
