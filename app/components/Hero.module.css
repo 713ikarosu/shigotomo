@@ -59,6 +59,12 @@
     color: #E8A040;
 }
 
+.charTomo :global(rt) {
+    font-size: 0.25em;
+    letter-spacing: 0.05em;
+    color: rgba(232, 160, 64, 0.85);
+}
+
 .charSmall {
     font-size: 2.5rem;
 }

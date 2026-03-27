@@ -60,7 +60,14 @@ export default function Hero() {
                 variants={charVariants}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: 0.8 + index * 0.1 }}
               >
-                {item.char}
+                {item.isMain ? (
+                  <ruby>
+                    {item.char}
+                    <rt>とも</rt>
+                  </ruby>
+                ) : (
+                  item.char
+                )}
               </motion.span>
             ))}
           </motion.h1>
