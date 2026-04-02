@@ -180,6 +180,62 @@
     margin-bottom: 0;
 }
 
+.planBilling {
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-kinari);
+}
+
+.planBilling h4 {
+    font-family: var(--font-serif), serif;
+    font-size: 1.1rem;
+    color: var(--color-ai-deep);
+    margin-bottom: 1rem;
+}
+
+.billingTable {
+    margin: 0 0 1rem;
+}
+
+.billingRow {
+    display: flex;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--color-kinari);
+    font-size: 0.9rem;
+}
+
+.billingRow:last-child {
+    border-bottom: none;
+}
+
+.billingRow dt {
+    flex: 0 0 140px;
+    color: var(--color-usuzumi);
+    font-weight: 600;
+}
+
+.billingRow dd {
+    color: var(--color-sumi);
+    margin: 0;
+}
+
+.billingNote {
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.billingNote a {
+    color: var(--color-ai);
+    text-decoration: underline;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.billingNote a:hover {
+    opacity: 1;
+}
+
 .planFuture {
     margin-top: var(--space-md);
     padding-top: var(--space-md);
@@ -275,6 +331,14 @@
 
     .planNote p {
         font-size: 0.9rem;
+    }
+
+    .billingRow dt {
+        flex: 0 0 120px;
+    }
+
+    .billingRow {
+        font-size: 0.85rem;
     }
 
     .btnPrimary {

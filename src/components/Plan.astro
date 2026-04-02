@@ -60,6 +60,37 @@ const features = [
           <p>ライトプランは「習慣化と計画管理」に特化したプランです。<br />勉強が続く仕組みをつくることにフォーカスします。</p>
         </div>
 
+        <div class={styles.planBilling}>
+          <h4>月額請求ルール</h4>
+          <dl class={styles.billingTable}>
+            <div class={styles.billingRow}>
+              <dt>利用開始日</dt>
+              <dd>初回決済日</dd>
+            </div>
+            <div class={styles.billingRow}>
+              <dt>1ヶ月の定義</dt>
+              <dd>初回決済日〜翌月同日の前日</dd>
+            </div>
+            <div class={styles.billingRow}>
+              <dt>自動更新</dt>
+              <dd>あり（更新前の個別通知なし）</dd>
+            </div>
+            <div class={styles.billingRow}>
+              <dt>解約期限</dt>
+              <dd>次回更新日の前日まで</dd>
+            </div>
+            <div class={styles.billingRow}>
+              <dt>解約方法</dt>
+              <dd>Stripe上からご自身でお手続き（運営への連絡不要）</dd>
+            </div>
+            <div class={styles.billingRow}>
+              <dt>日割り・返金</dt>
+              <dd>なし</dd>
+            </div>
+          </dl>
+          <p class={styles.billingNote}><a href="/terms">利用規約・キャンセルポリシー全文はこちら</a></p>
+        </div>
+
         <div class={styles.planFuture}>
           <h5>今後予定のプラン</h5>
           <p class={styles.futureNote}>

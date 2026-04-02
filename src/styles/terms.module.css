@@ -1,0 +1,112 @@
+.page {
+  background: var(--color-shiro);
+  min-height: 100vh;
+  padding: var(--space-xl) 0;
+}
+
+.header {
+  margin-bottom: var(--space-xl);
+  border-bottom: 2px solid var(--color-kinari);
+  padding-bottom: var(--space-lg);
+}
+
+.header h1 {
+  font-family: var(--font-serif), serif;
+  font-size: 2rem;
+  color: var(--color-ai-deep);
+  margin: 1.5rem 0 1rem;
+}
+
+.lead {
+  color: var(--color-usuzumi);
+  line-height: 1.9;
+  font-size: 0.95rem;
+}
+
+.backLink {
+  color: var(--color-ai);
+  text-decoration: none;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.backLink:hover {
+  opacity: 1;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section {
+  padding: 0;
+  border-bottom: 1px solid var(--color-kinari);
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.section h2 {
+  font-family: var(--font-serif), serif;
+  font-size: 1.25rem;
+  color: var(--color-ai-deep);
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 4px solid var(--color-shu);
+}
+
+.section p {
+  color: var(--color-usuzumi);
+  line-height: 1.9;
+  margin-bottom: 0.75rem;
+}
+
+.section p:last-child {
+  margin-bottom: 0;
+}
+
+.section ul {
+  padding-left: 1.5rem;
+  color: var(--color-usuzumi);
+  line-height: 1.9;
+}
+
+.section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.cancelPolicy {
+  background: var(--color-kinari);
+  padding: var(--space-md);
+  border-radius: 8px;
+  border-bottom: none;
+}
+
+.cancelPolicy h2 {
+  border-left-color: var(--color-shu);
+}
+
+.footer {
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+
+@media (min-width: 769px) {
+  .sections {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.6rem;
+  }
+
+  .section h2 {
+    font-size: 1.1rem;
+  }
+}
