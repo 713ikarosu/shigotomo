@@ -67,21 +67,26 @@ const features = [
     <div class={styles.serviceAbout} data-animate data-delay="0.2">
       <div class={styles.aboutCard}>
         <div class={styles.aboutLabel}>運営者について</div>
-        <h3>医師として、自分自身が「続けられない」を経験した</h3>
-        <p>
-          医師として働きながら、資格取得や学び直しに何度も取り組んできました。
-          時間はある。意欲もある。でも、気づけば計画倒れになっている。
-        </p>
-        <p>
-          そこで気づいたのは、「続かない」のは意志の問題ではなく、
-          設計の問題だということ。
-          学習計画と習慣の仕組みを整えた途端、勉強は無理なく続くようになりました。
-        </p>
-        <p>
-          その経験をもとに、同じ悩みを持つ忙しい社会人のために、
-          シゴトモを立ち上げました。
-          「先生」ではなく、「設計者・伴走者」として、あなたの学習を支えます。
-        </p>
+
+        <div class={styles.aboutPerson}>
+          <div class={styles.personRole}>代表・伴走担当</div>
+          <p class={styles.personName}>つっちゃん先生</p>
+          <p>
+            元小学校教師。子どもたちと向き合う中で気づいた——「勉強が続くかどうかは、能力より仲間の問題だ」と。
+            社会人になると、同じ目標に向かう仲間ができにくい。だからこそ、あなたの隣で一緒に進む存在が必要だと思い、シゴトモを立ち上げた。
+          </p>
+        </div>
+
+        <hr class={styles.personDivider} />
+
+        <div class={styles.aboutPerson}>
+          <div class={styles.personRole}>学習設計担当・医師</div>
+          <p>
+            大学時代から中学・高校・大学受験生の勉強を指導。
+            自身も「才能より計画」で医師国試を突破した経験から、勉強設計の専門家として活動。
+            土地家屋調査士（合格・独立）など、社会人の資格学習の伴走実績あり。
+          </p>
+        </div>
       </div>
     </div>
   </div>

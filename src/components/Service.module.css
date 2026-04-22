@@ -169,6 +169,32 @@
     margin-bottom: 0;
 }
 
+.aboutPerson {
+    margin-top: 0;
+}
+
+.personRole {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: var(--color-shu);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+
+.personName {
+    font-family: var(--font-serif), serif;
+    font-size: 1.3rem;
+    color: var(--color-ai-deep);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.personDivider {
+    border: none;
+    border-top: 1px solid rgba(30, 58, 95, 0.12);
+    margin: var(--space-md) 0;
+}
+
 @media (max-width: 768px) {
     .philosophyCard {
         padding: var(--space-md);
