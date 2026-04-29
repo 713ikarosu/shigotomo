@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro'
+import styles from '../styles/terms.module.css'
+---
+
+<Layout
+  title="プライバシーポリシー | シゴトモ"
+  description="シゴトモのプライバシーポリシーをご確認ください。"
+>
+  <div class={styles.page}>
+    <div class="container">
+      <header class={styles.header}>
+        <a href="/" class={styles.backLink}>← トップページへ戻る</a>
+        <h1>プライバシーポリシー</h1>
+        <p class={styles.lead}>
+          シゴトモ（以下「本サービス」）は、利用者の個人情報の取り扱いについて、本ポリシーに従い、適切に管理・保護します。
+        </p>
+      </header>
+
+      <div class={styles.sections}>
+        <section class={styles.section}>
+          <h2>第1条（事業者情報）</h2>
+          <ul>
+            <li>事業者名：__要確認__</li>
+            <li>運営責任者：__要確認__</li>
+            <li>所在地：__要確認__</li>
+            <li>連絡先：shigotomo.info@gmail.com（公式LINE経由でも受付）</li>
+          </ul>
+        </section>
+
+        <section class={styles.section}>
+          <h2>第2条（取得する個人情報）</h2>
+          <p>本サービスでは、サービス提供のため以下の情報を取得します。</p>
+          <ul>
+            <li>氏名・ニックネーム</li>
+            <li>メールアドレス</li>
+            <li>LINEアカウント情報（公式LINE経由でやりとりする場合）</li>
+            <li>学習目標・学習履歴・日報内容など、サービス提供に必要な情報</li>
+            <li>決済関連情報（決済代行サービスStripeを通じて取得・処理）</li>
+          </ul>
+        </section>
+
+        <section class={styles.section}>
+          <h2>第3条（利用目的）</h2>
+          <p>取得した個人情報は、以下の目的のために利用します。</p>
+          <ul>
+            <li>本サービスの提供（学習計画の作成・進捗管理・面談・連絡等）</li>
+            <li>本人確認・利用料金の請求・決済処理</li>
+            <li>お問い合わせ・サポート対応</li>
+            <li>サービス改善のための統計分析（個人を特定しない形で）</li>
+            <li>重要なお知らせ・規約変更等のご連絡</li>
+          </ul>
+        </section>
+
+        <section class={styles.section}>
+          <h2>第4条（第三者への提供）</h2>
+          <p>本サービスは、以下の場合を除き、利用者の同意なく個人情報を第三者に提供しません。</p>
+          <ul>
+            <li>法令に基づく場合</li>
+            <li>人の生命・身体・財産の保護に必要で、本人の同意取得が困難な場合</li>
+            <li>決済処理のため決済代行サービス（Stripe）に必要な情報を提供する場合</li>
+          </ul>
+        </section>
+
+        <section class={styles.section}>
+          <h2>第5条（個人情報の安全管理）</h2>
+          <p>本サービスは、個人情報の漏えい・紛失・改ざん等を防ぐため、適切な安全管理措置を講じます。決済情報はStripeのセキュリティ基準に基づき処理され、本サービス側ではクレジットカード番号等を保持しません。</p>
+        </section>
+
+        <section class={styles.section}>
+          <h2>第6条（開示・訂正・削除等の請求）</h2>
+          <p>利用者は、本サービスが保有する自身の個人情報について、開示・訂正・削除・利用停止を請求することができます。請求は、第8条に定めるお問い合わせ窓口までご連絡ください。</p>
+        </section>
+
+        <section class={styles.section}>
+          <h2>第7条（Cookie等の利用）</h2>
+          <p>本サービスのウェブサイトでは、利用状況の把握・サービス改善のためCookieを利用する場合があります。Cookieの受け入れを拒否される場合は、ブラウザの設定により無効化できます。</p>
+        </section>
+
+        <section class={styles.section}>
+          <h2>第8条（お問い合わせ窓口）</h2>
+          <p>本ポリシーに関するお問い合わせは、以下の窓口までご連絡ください。</p>
+          <ul>
+            <li>メール：shigotomo.info@gmail.com</li>
+            <li>公式LINE：申込時にご案内</li>
+          </ul>
+        </section>
+
+        <section class={styles.section}>
+          <h2>第9条（本ポリシーの変更）</h2>
+          <p>本サービスは、必要に応じて本ポリシーを変更することがあります。変更後のポリシーは、本ウェブサイトに掲載した時点で効力を生じます。</p>
+        </section>
+      </div>
+
+      <div class={styles.footer}>
+        <a href="/" class={styles.backLink}>← トップページへ戻る</a>
+      </div>
+    </div>
+  </div>
+</Layout>

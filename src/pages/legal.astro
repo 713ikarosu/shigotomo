@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro'
+import styles from '../styles/terms.module.css'
+---
+
+<Layout
+  title="特定商取引法に基づく表示 | シゴトモ"
+  description="シゴトモの特定商取引法に基づく表示をご確認ください。"
+>
+  <div class={styles.page}>
+    <div class="container">
+      <header class={styles.header}>
+        <a href="/" class={styles.backLink}>← トップページへ戻る</a>
+        <h1>特定商取引法に基づく表示</h1>
+        <p class={styles.lead}>
+          特定商取引に関する法律第11条に基づき、以下のとおり表示いたします。
+        </p>
+      </header>
+
+      <div class={styles.sections}>
+        <section class={styles.section}>
+          <h2>販売事業者</h2>
+          <ul>
+            <li>__要確認（事業者名）__</li>
+          </ul>
+        </section>
+
+        <section class={styles.section}>
+          <h2>運営統括責任者</h2>
+          <ul>
+            <li>__要確認（責任者氏名）__</li>
+          </ul>
+        </section>
+
+        <section class={styles.section}>
+          <h2>所在地</h2>
+          <p>__要確認（住所）__</p>
+          <p>※ ご請求があれば遅滞なく開示いたします。</p>
+        </section>
+
+        <section class={styles.section}>
+          <h2>連絡先</h2>
+          <ul>
+            <li>メールアドレス：shigotomo.info@gmail.com</li>
+            <li>電話番号：__要確認__（請求があれば遅滞なく開示）</li>
+            <li>受付時間：メールにて随時受付（返信は3営業日以内）</li>
+          </ul>
+        </section>
+
+        <section class={styles.section}>
+          <h2>販売価格</h2>
+          <ul>
+            <li>ライトプラン：月額 12,000円（税込）</li>
+            <li>スタンダードプラン：月額 38,000円（税込）</li>
+            <li>プレミアムプラン：招待制（金額は招待時にご案内）</li>
+          </ul>
+        </section>
+
+        <section class={styles.section}>
+          <h2>商品代金以外の必要料金</h2>
+          <p>商品代金以外に必要となる料金はありません。インターネット接続料金・通信料金等はお客様のご負担となります。</p>
+        </section>
+
+        <section class={styles.section}>
+          <h2>支払方法</h2>
+          <ul>
+            <li>クレジットカード決済（決済代行：Stripe）</li>
+            <li>対応カードブランド：Visa / Mastercard / American Express / JCB / Diners Club / Discover</li>
+          </ul>
+        </section>
+
+        <section class={styles.section}>
+          <h2>支払時期</h2>
+          <ul>
+            <li>初回：お申込時に決済</li>
+            <li>2回目以降：毎月の更新日に自動課金（月額制・自動更新）</li>
+          </ul>
+        </section>
+
+        <section class={styles.section}>
+          <h2>サービス提供時期</h2>
+          <p>初回決済完了後、1〜3営業日以内に学習計画をお届けし、伴走を開始します。</p>
+        </section>
+
+        <section class={styles.section}>
+          <h2>申込数量</h2>
+          <p>各プランとも少人数制で運営しています。定員に達した場合は、空きが出るまでお待ちいただきます。</p>
+        </section>
+
+        <section class={styles.section}>
+          <h2>解約・返金について</h2>
+          <ul>
+            <li>解約は次回更新日の前日までに、Stripe上からご自身でお手続きください。</li>
+            <li>サービスの性質上、日割り計算および途中解約による返金は行いません。</li>
+            <li>詳細は<a href="/terms">利用規約</a>をご確認ください。</li>
+          </ul>
+        </section>
+
+        <section class={styles.section}>
+          <h2>動作環境</h2>
+          <ul>
+            <li>LINE公式アカウントが利用可能なスマートフォン</li>
+            <li>LINE通話が利用可能な環境（初回面談・定期面談で使用）</li>
+            <li>Webブラウザ（Chrome / Safari / Firefox / Edge 最新版推奨）</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class={styles.footer}>
+        <a href="/" class={styles.backLink}>← トップページへ戻る</a>
+      </div>
+    </div>
+  </div>
+</Layout>

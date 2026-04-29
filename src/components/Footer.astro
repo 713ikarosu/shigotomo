@@ -1,5 +1,7 @@
 ---
 import styles from './Footer.module.css'
+
+const currentYear = new Date().getFullYear()
 ---
 
 <footer class={styles.footer}>
@@ -9,16 +11,22 @@ import styles from './Footer.module.css'
         <span class={styles.logoText}>シゴトモ</span>
         <p class={styles.footerTagline}>明日の仕事に、伴がいる</p>
       </div>
-      <div class={styles.footerLinks}>
-        <a href="#service">サービス</a>
-        <a href="#plan">プラン</a>
-        <a href="#flow">ご利用の流れ</a>
-        <a href="#faq">FAQ</a>
-        <a href="/terms">利用規約</a>
+      <div class={styles.footerLinkGroups}>
+        <div class={styles.footerLinks}>
+          <a href="#service">サービス</a>
+          <a href="#plan">プラン</a>
+          <a href="#flow">ご利用の流れ</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class={styles.footerLinks}>
+          <a href="/terms">利用規約</a>
+          <a href="/privacy">プライバシーポリシー</a>
+          <a href="/legal">特定商取引法に基づく表示</a>
+        </div>
       </div>
     </div>
     <div class={styles.footerBottom}>
-      <p>&copy; 2025 シゴトモ All rights reserved.</p>
+      <p>&copy; {currentYear} シゴトモ All rights reserved.</p>
     </div>
   </div>
 </footer>
