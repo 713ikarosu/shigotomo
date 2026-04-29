@@ -49,15 +49,15 @@
     flex-wrap: wrap;
     align-items: stretch;
     justify-content: center;
-    gap: 1rem;
-    max-width: 1000px;
+    gap: 0.6rem;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
 .flowStep {
     flex: 1;
-    min-width: 160px;
-    max-width: 180px;
+    min-width: 150px;
+    max-width: 175px;
     background: var(--color-kinari);
     padding: 1.5rem 1rem;
     border-radius: 8px;
@@ -98,7 +98,7 @@
 }
 
 .flowArrow {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--color-ai);
     font-weight: 700;
     flex-shrink: 0;
