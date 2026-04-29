@@ -1,22 +1,61 @@
 ---
 import styles from './Plan.module.css'
 
-const features = [
+const plans = [
   {
-    title: '初回ヒアリング',
-    desc: 'LINE通話（20〜30分）で目標・生活状況・学習環境を確認します',
+    id: 'light',
+    name: 'ライト',
+    price: '12,000',
+    targetUser: '自分一人では続けにくい方／コーチング型の手厚い伴走までは不要な方',
+    features: [
+      { title: '学習計画作成', desc: 'Dr.大将（医師）が目標・生活リズムから設計' },
+      { title: '日報リマインド（自動）', desc: '公式LINEから毎日テンプレートを自動送信' },
+      { title: '日報レビュー（週次）', desc: '週末にまとめて、つっちゃん先生が確認・コメント' },
+      { title: '電話面談（月1回）', desc: 'つっちゃん先生と。次回面談日は当日決定' },
+    ],
+    notIncluded: ['LINEでの個別相談', '毎日の即時フィードバック'],
+    badge: null,
+    ctaLabel: 'ライトプランに申し込む',
+    ctaHref: '#apply',
+    disabled: false,
+    isStandard: false,
   },
   {
-    title: '月次学習計画作成',
-    desc: '「毎日、今日やること」が分かる形でプランを設計・共有します',
+    id: 'standard',
+    name: 'スタンダード',
+    subtitle: '"トモダチ" プラン',
+    price: '38,000',
+    targetUser: '友人のように毎日そばで伴走してほしい方／「見られている感」があるほうが続く方',
+    features: [
+      { title: '学習計画作成', desc: 'Dr.大将（医師）が目標・生活リズムから設計' },
+      { title: '日報の毎日フィードバック', desc: 'つっちゃん先生から毎日コメント。お悩み相談もOK' },
+      { title: 'LINE個別相談', desc: '都度返信（最低24時間以内に返信）' },
+      { title: '電話面談（2週に1回）', desc: 'つっちゃん先生と。次回面談日は当日決定' },
+      { title: '計画見直し（都度）', desc: 'つっちゃん先生とDr.大将が連携してアップデート' },
+    ],
+    notIncluded: [],
+    badge: 'おすすめ',
+    ctaLabel: 'スタンダードプランに申し込む',
+    ctaHref: '#apply',
+    disabled: false,
+    isStandard: true,
   },
   {
-    title: '毎日の学習報告',
-    desc: '1分でできるフォーム報告。習慣化の継続を管理します',
-  },
-  {
-    title: '週1回の進捗チェック',
-    desc: '達成度コメントと翌週の改善ポイントを提示します',
+    id: 'premium',
+    name: 'プレミアム',
+    subtitle: null,
+    price: null,
+    targetUser: 'ライト・スタンダードで一定期間継続された方を、招待制でご案内します',
+    features: [
+      { title: '医師（Dr.大将）が直接コミット', desc: '計画設計だけでなく、利用者との直接やりとりまで担当' },
+      { title: '完全オーダーメイドの伴走', desc: '内容詳細は調整中。ローンチ時に公開予定' },
+    ],
+    notIncluded: [],
+    badge: '準備中',
+    ctaLabel: '招待制（準備中）',
+    ctaHref: null,
+    disabled: true,
+    isStandard: false,
   },
 ]
 ---
@@ -28,83 +67,104 @@ const features = [
         <span class={styles.titleEn}>Plan</span>
         <span class={styles.titleJa}>料金プラン</span>
       </h2>
+      <p class={styles.sectionLead}>
+        どのプランも、学習計画は<strong>医師（Dr.大将）が設計</strong>します。<br />
+        違いは<strong>つっちゃん先生（教師）の伴走の濃さ</strong>です。
+      </p>
     </div>
 
-    <div class={styles.planCard} data-animate data-delay="0.2">
-      <div class={styles.planBadge}>現在ローンチ中</div>
-      <div class={styles.planHeader}>
-        <h3>ライトプラン</h3>
-        <div class={styles.planPrice}>
-          <span class={styles.priceAmount}>2,980</span>
-          <span class={styles.priceUnit}>円/月（税込）</span>
+    <div class={styles.planGrid}>
+      {plans.map((plan, index) => (
+        <div
+          class={`${styles.planCard} ${plan.isStandard ? styles.recommended : ''} ${plan.disabled ? styles.disabled : ''}`}
+          data-animate
+          data-delay={String(0.2 + index * 0.1)}
+        >
+          {plan.badge && <div class={styles.planBadge}>{plan.badge}</div>}
+
+          <div class={styles.planHeader}>
+            <h3>{plan.name}</h3>
+            {plan.subtitle && <p class={styles.planSubtitle}>{plan.subtitle}</p>}
+            {plan.price ? (
+              <div class={styles.planPrice}>
+                <span class={styles.priceAmount}>{plan.price}</span>
+                <span class={styles.priceUnit}>円/月（税込）</span>
+              </div>
+            ) : (
+              <div class={styles.planPriceTBA}>準備中</div>
+            )}
+          </div>
+
+          <p class={styles.targetUser}>{plan.targetUser}</p>
+
+          <div class={styles.planContent}>
+            <ul class={styles.planFeatures}>
+              {plan.features.map((feature) => (
+                <li>
+                  <span class={styles.featureTitle}>{feature.title}</span>
+                  <span class={styles.featureDesc}>{feature.desc}</span>
+                </li>
+              ))}
+            </ul>
+            {plan.notIncluded.length > 0 && (
+              <div class={styles.notIncluded}>
+                <p>※ 含まれないもの: <span>{plan.notIncluded.join(' / ')}</span></p>
+              </div>
+            )}
+          </div>
+
+          <div class={styles.planCta}>
+            {plan.ctaHref ? (
+              <a href={plan.ctaHref} class={styles.btnPrimary}>
+                <span>{plan.ctaLabel}</span>
+              </a>
+            ) : (
+              <span class={styles.btnDisabled}>{plan.ctaLabel}</span>
+            )}
+          </div>
         </div>
-      </div>
+      ))}
+    </div>
 
-      <div class={styles.planLimit}>
-        <p>⚠️ 人数制限あり(15〜20名まで)</p>
-      </div>
+    <div class={styles.planLimit} data-animate data-delay="0.5">
+      <p>⚠️ 各プラン少人数制（伴走の品質担保のため、定員に達した場合は空き待ちとなります）</p>
+    </div>
 
-      <div class={styles.planContent}>
-        <h4>提供内容</h4>
-        <ul class={styles.planFeatures}>
-          {features.map((feature) => (
-            <li>
-              <span class={styles.featureTitle}>{feature.title}</span>
-              <span class={styles.featureDesc}>{feature.desc}</span>
-            </li>
-          ))}
-        </ul>
+    <div class={styles.planSharedNote} data-animate data-delay="0.6">
+      <p><strong>すべてのプランで対象外</strong></p>
+      <p>問題の解説・添削・専門的な指導／予約外の通話対応／モチベーション管理・精神論</p>
+      <p class={styles.sharedNoteSmall}>シゴトモは「習慣化と計画管理」に特化したサービスです。勉強内容そのものは教材で学ぶ前提となります。</p>
+    </div>
 
-        <div class={styles.planNote}>
-          <p><strong>※ 問題の解説・添削・質問対応・毎日フィードバック・電話/ビデオ通話は対象外です</strong></p>
-          <p>ライトプランは「習慣化と計画管理」に特化したプランです。<br />勉強が続く仕組みをつくることにフォーカスします。</p>
+    <div class={styles.planBilling} data-animate data-delay="0.7">
+      <h4>月額請求ルール（全プラン共通）</h4>
+      <dl class={styles.billingTable}>
+        <div class={styles.billingRow}>
+          <dt>利用開始日</dt>
+          <dd>初回決済日</dd>
         </div>
-
-        <div class={styles.planBilling}>
-          <h4>月額請求ルール</h4>
-          <dl class={styles.billingTable}>
-            <div class={styles.billingRow}>
-              <dt>利用開始日</dt>
-              <dd>初回決済日</dd>
-            </div>
-            <div class={styles.billingRow}>
-              <dt>1ヶ月の定義</dt>
-              <dd>初回決済日〜翌月同日の前日</dd>
-            </div>
-            <div class={styles.billingRow}>
-              <dt>自動更新</dt>
-              <dd>あり（更新前の個別通知なし）</dd>
-            </div>
-            <div class={styles.billingRow}>
-              <dt>解約期限</dt>
-              <dd>次回更新日の前日まで</dd>
-            </div>
-            <div class={styles.billingRow}>
-              <dt>解約方法</dt>
-              <dd>Stripe上からご自身でお手続き（運営への連絡不要）</dd>
-            </div>
-            <div class={styles.billingRow}>
-              <dt>日割り・返金</dt>
-              <dd>なし</dd>
-            </div>
-          </dl>
-          <p class={styles.billingNote}><a href="/terms">利用規約・キャンセルポリシー全文はこちら</a></p>
+        <div class={styles.billingRow}>
+          <dt>1ヶ月の定義</dt>
+          <dd>初回決済日〜翌月同日の前日</dd>
         </div>
-
-        <div class={styles.planFuture}>
-          <h5>今後予定のプラン</h5>
-          <p class={styles.futureNote}>
-            ライトプランで一定期間継続できた方を対象に、<br />
-            毎日フィードバック・週1面談を含む<strong>プレミアムプラン</strong>を招待制で提供予定です。
-          </p>
+        <div class={styles.billingRow}>
+          <dt>自動更新</dt>
+          <dd>あり（更新前の個別通知なし）</dd>
         </div>
-      </div>
-
-      <div class={styles.planCta}>
-        <a href="#apply" class={styles.btnPrimary}>
-          <span>ライトプランに申し込む</span>
-        </a>
-      </div>
+        <div class={styles.billingRow}>
+          <dt>解約期限</dt>
+          <dd>次回更新日の前日まで</dd>
+        </div>
+        <div class={styles.billingRow}>
+          <dt>解約方法</dt>
+          <dd>Stripe上からご自身でお手続き（運営への連絡不要）</dd>
+        </div>
+        <div class={styles.billingRow}>
+          <dt>日割り・返金</dt>
+          <dd>なし</dd>
+        </div>
+      </dl>
+      <p class={styles.billingNote}><a href="/terms">利用規約・キャンセルポリシー全文はこちら</a></p>
     </div>
   </div>
 </section>
