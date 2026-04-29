@@ -70,11 +70,12 @@ const faqs = [
   </div>
 </section>
 
-<script>
+<script define:vars={{ activeClass: styles.active }}>
   document.querySelectorAll('[data-faq-item]').forEach((item) => {
-    const question = item.querySelector('[data-faq-question]')!
+    const question = item.querySelector('[data-faq-question]')
+    if (!question) return
     question.addEventListener('click', () => {
-      item.classList.toggle('active')
+      item.classList.toggle(activeClass)
     })
   })
 </script>
