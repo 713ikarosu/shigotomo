@@ -8,10 +8,10 @@ const plans = [
     price: '12,000',
     targetUser: '自分一人では続けにくい方／コーチング型の手厚い伴走までは不要な方',
     features: [
-      { title: '学習計画作成', desc: 'Dr.大将（医師）が目標・生活リズムから設計' },
       { title: '日々の学習状況チェック', desc: '公式LINEから毎日、その日の勉強状況をうかがうメッセージをお届け' },
       { title: '日報レビュー（週次）', desc: '週末にまとめて、つっちゃん先生が確認・コメント' },
-      { title: '電話面談（月1回）', desc: 'つっちゃん先生と。次回面談日は当日決定' },
+      { title: '電話面談（月1回）', desc: 'つっちゃん先生と' },
+      { title: '学習計画作成', desc: 'Dr.大将（医師）が目標・生活リズムから設計' },
     ],
     notIncluded: ['LINEでの個別相談', '毎日の即時フィードバック'],
     badge: null,
@@ -27,11 +27,11 @@ const plans = [
     price: '38,000',
     targetUser: '友人のように毎日そばで伴走してほしい方／「見られている感」があるほうが続く方',
     features: [
-      { title: '学習計画作成', desc: 'Dr.大将（医師）が目標・生活リズムから設計' },
       { title: '日報の毎日フィードバック', desc: 'つっちゃん先生から毎日コメント。お悩み相談もOK' },
       { title: 'LINE個別相談', desc: '都度返信（最低24時間以内に返信）' },
-      { title: '電話面談（2週に1回）', desc: 'つっちゃん先生と。次回面談日は当日決定' },
+      { title: '電話面談（2週に1回）', desc: 'つっちゃん先生と' },
       { title: '計画見直し（都度）', desc: 'つっちゃん先生とDr.大将が連携してアップデート' },
+      { title: '学習計画作成', desc: 'Dr.大将（医師）が目標・生活リズムから設計' },
     ],
     notIncluded: [],
     badge: 'おすすめ',
@@ -68,8 +68,9 @@ const plans = [
         <span class={styles.titleJa}>料金プラン</span>
       </h2>
       <p class={styles.sectionLead}>
-        どのプランも、学習計画は<strong>医師（Dr.大将）が設計</strong>します。<br />
-        違いは<strong>つっちゃん先生（教師）の伴走の濃さ</strong>です。
+        シゴトモの中心は、<strong>つっちゃん先生（教師）の毎日の伴走</strong>。<br />
+        その裏で<strong>医師（Dr.大将）</strong>が学習計画を設計し、つっちゃん先生が毎日の行動に落とし込みます。<br />
+        プラン間の違いは、伴走の濃さです。
       </p>
     </div>
 
@@ -134,37 +135,6 @@ const plans = [
       <p><strong>すべてのプランで対象外</strong></p>
       <p>問題の解説・添削・専門的な指導／予約外の通話対応／モチベーション管理・精神論</p>
       <p class={styles.sharedNoteSmall}>シゴトモは「習慣化と計画管理」に特化したサービスです。勉強内容そのものは教材で学ぶ前提となります。</p>
-    </div>
-
-    <div class={styles.planBilling} data-animate data-delay="0.7">
-      <h4>月額請求ルール（全プラン共通）</h4>
-      <dl class={styles.billingTable}>
-        <div class={styles.billingRow}>
-          <dt>利用開始日</dt>
-          <dd>初回決済日</dd>
-        </div>
-        <div class={styles.billingRow}>
-          <dt>1ヶ月の定義</dt>
-          <dd>初回決済日〜翌月同日の前日</dd>
-        </div>
-        <div class={styles.billingRow}>
-          <dt>自動更新</dt>
-          <dd>あり（更新前の個別通知なし）</dd>
-        </div>
-        <div class={styles.billingRow}>
-          <dt>解約期限</dt>
-          <dd>次回更新日の前日まで</dd>
-        </div>
-        <div class={styles.billingRow}>
-          <dt>解約方法</dt>
-          <dd>Stripe上からご自身でお手続き（運営への連絡不要）</dd>
-        </div>
-        <div class={styles.billingRow}>
-          <dt>日割り・返金</dt>
-          <dd>なし</dd>
-        </div>
-      </dl>
-      <p class={styles.billingNote}><a href="/terms">利用規約・キャンセルポリシー全文はこちら</a></p>
     </div>
   </div>
 </section>
