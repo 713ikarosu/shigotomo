@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from './Diagnosis.module.css'
+import { LINE_ADD_FRIEND_URL } from '../config'
 
-// TODO: 公式LINEの友だち追加URLに差し替え（プロトタイプ中はトップへ）
-const LINE_URL = '/#apply'
+// 申込導線は「LINE友だち先行」。友だち追加URLは src/config.ts に集約。
+const LINE_URL = LINE_ADD_FRIEND_URL
 
 type TypeKey = 'overload' | 'notime' | 'threedays' | 'tsundoku'
 
