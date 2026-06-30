@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Footer from '../../components/Footer.astro'
+import Diagnosis from '../../components/Diagnosis.tsx'
+---
+
+<Layout
+  title="無料診断｜あなたが続かない理由｜シゴトモ"
+  description="やる気の問題じゃないかもしれません。6つの質問であなたの「挫折タイプ」を見立て、明日から「ひとりで走らない」一歩をお渡しします。社会人向け学習伴走サービス シゴトモの無料診断。"
+>
+  <header class="shindanHeader">
+    <a href="/" class="logo">シゴトモ</a>
+    <a href="/" class="back">サービスを見る →</a>
+  </header>
+
+  <main class="shindanMain">
+    <Diagnosis client:load />
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .shindanHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 2rem;
+    border-bottom: 1px solid rgba(30, 58, 95, 0.1);
+    background: var(--color-shiro);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .logo {
+    font-family: var(--font-serif), serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-ai);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+
+  .back {
+    font-family: var(--font-sans), sans-serif;
+    font-size: 0.9rem;
+    color: var(--color-usuzumi);
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  .back:hover {
+    color: var(--color-ai);
+  }
+
+  .shindanMain {
+    min-height: 80vh;
+    padding: var(--space-xl) 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background: var(--color-kinari);
+  }
+
+  @media (max-width: 768px) {
+    .shindanHeader {
+      padding: 0.9rem 1.25rem;
+    }
+
+    .shindanMain {
+      padding: var(--space-lg) 1rem;
+    }
+  }
+</style>
