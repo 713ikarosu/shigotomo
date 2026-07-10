@@ -52,7 +52,11 @@ const jsonLd = {
       <h1 class="articleTitle">{article.data.title}</h1>
 
       <p class="authorLine">
-        文：{article.data.author}｜監修：{article.data.supervisor}（医師）
+        {
+          article.data.author === article.data.supervisor
+            ? `文・監修：${article.data.author}（医師）`
+            : `文：${article.data.author}｜監修：${article.data.supervisor}（医師）`
+        }
       </p>
 
       <div class="prose">
