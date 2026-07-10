@@ -2,15 +2,17 @@
 interface Props {
   title?: string
   description?: string
+  ogType?: 'website' | 'article'
 }
 
 const {
   title = 'シゴトモ｜忙しい社会人のための学習伴走サービス',
   description = '資格取得・リスキリングを続けたい社会人向けの伴走型学習支援サービス。勉強内容は教えません。学習計画は医師（Dr.チャンマー）が設計、毎日の伴走は元小学校教師（つっちゃん先生）が担当。「今日やること」が毎日決まっている状態をつくります。月額12,000円〜・少人数制。',
+  ogType = 'website',
 } = Astro.props
 
-const siteUrl = 'https://shigotomo.com'
-const pageUrl = new URL(Astro.url.pathname, siteUrl).href
+const siteUrl = Astro.site!.origin
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href
 ---
 
 <!doctype html>
@@ -36,7 +38,7 @@ const pageUrl = new URL(Astro.url.pathname, siteUrl).href
     <link rel="preload" as="image" href="/hero.avif" type="image/avif" />
 
     <!-- OG / Twitter -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="ja_JP" />
     <meta property="og:url" content={pageUrl} />
     <meta property="og:site_name" content="シゴトモ" />

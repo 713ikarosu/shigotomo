@@ -1,0 +1,234 @@
+---
+import { getCollection, render } from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import Footer from '../../components/Footer.astro'
+import JournalCta from '../../components/JournalCta.astro'
+
+export async function getStaticPaths() {
+  const articles = await getCollection('journal', ({ data }) => !data.draft)
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }))
+}
+
+const { article } = Astro.props
+const { Content } = await render(article)
+
+const formatDate = (date: Date) =>
+  `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}`
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: article.data.title,
+  description: article.data.description,
+  datePublished: article.data.publishDate.toISOString(),
+  dateModified: (article.data.updatedDate ?? article.data.publishDate).toISOString(),
+  author: { '@type': 'Person', name: article.data.author },
+  publisher: { '@type': 'Organization', name: 'シゴトモ', url: Astro.site?.href },
+  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
+  inLanguage: 'ja',
+}
+---
+
+<Layout title={`${article.data.title}｜シゴトモジャーナル`} description={article.data.description} ogType="article">
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <header class="journalHeader">
+    <a href="/" class="logo">シゴトモ</a>
+    <a href="/journal/" class="back">記事一覧へ →</a>
+  </header>
+
+  <main class="articleMain">
+    <article class="article">
+      <div class="articleMeta">
+        <time datetime={article.data.publishDate.toISOString()}>
+          {formatDate(article.data.publishDate)}
+        </time>
+        {article.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+      </div>
+
+      <h1 class="articleTitle">{article.data.title}</h1>
+
+      <p class="authorLine">
+        文：{article.data.author}｜監修：{article.data.supervisor}（医師）
+      </p>
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      <JournalCta />
+
+      <p class="backToList">
+        <a href="/journal/">← 記事一覧に戻る</a>
+      </p>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .journalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 2rem;
+    border-bottom: 1px solid rgba(30, 58, 95, 0.1);
+    background: var(--color-shiro);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .logo {
+    font-family: var(--font-serif), serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-ai);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+
+  .back {
+    font-family: var(--font-sans), sans-serif;
+    font-size: 0.9rem;
+    color: var(--color-usuzumi);
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  .back:hover {
+    color: var(--color-ai);
+  }
+
+  .articleMain {
+    padding: var(--space-xl) 2rem;
+    background: var(--color-shiro);
+  }
+
+  .article {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .articleMeta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: var(--space-sm);
+    font-size: 0.85rem;
+    color: var(--color-usuzumi);
+  }
+
+  .tag {
+    background: var(--color-kinari);
+    color: var(--color-ai);
+    padding: 0.15rem 0.6rem;
+    border-radius: 3px;
+    font-size: 0.78rem;
+  }
+
+  .articleTitle {
+    font-family: var(--font-serif), serif;
+    font-size: 2rem;
+    color: var(--color-ai-deep);
+    font-weight: 700;
+    line-height: 1.7;
+    margin-bottom: var(--space-sm);
+  }
+
+  .authorLine {
+    font-size: 0.9rem;
+    color: var(--color-usuzumi);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid rgba(30, 58, 95, 0.1);
+    margin-bottom: var(--space-md);
+  }
+
+  .prose {
+    line-height: 2;
+  }
+
+  .prose :global(h2) {
+    font-family: var(--font-serif), serif;
+    font-size: 1.5rem;
+    color: var(--color-ai-deep);
+    font-weight: 700;
+    line-height: 1.7;
+    margin: var(--space-lg) 0 var(--space-sm);
+    padding-left: 0.85rem;
+    border-left: 4px solid var(--color-shu);
+  }
+
+  .prose :global(h3) {
+    font-family: var(--font-serif), serif;
+    font-size: 1.2rem;
+    color: var(--color-ai-deep);
+    font-weight: 700;
+    margin: var(--space-md) 0 var(--space-xs);
+  }
+
+  .prose :global(p) {
+    margin-bottom: var(--space-sm);
+    color: var(--color-sumi);
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin: 0 0 var(--space-sm) 1.4rem;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 0.4rem;
+  }
+
+  .prose :global(strong) {
+    color: var(--color-ai-deep);
+  }
+
+  .prose :global(blockquote) {
+    background: var(--color-kinari);
+    border-left: 4px solid var(--color-ai);
+    padding: var(--space-sm) var(--space-md);
+    margin-bottom: var(--space-sm);
+    color: var(--color-usuzumi);
+  }
+
+  .prose :global(a) {
+    color: var(--color-ai);
+    text-decoration: underline;
+  }
+
+  .backToList {
+    margin-top: var(--space-lg);
+    text-align: center;
+  }
+
+  .backToList a {
+    color: var(--color-usuzumi);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  .backToList a:hover {
+    color: var(--color-ai);
+  }
+
+  @media (max-width: 768px) {
+    .journalHeader {
+      padding: 0.9rem 1.25rem;
+    }
+
+    .articleMain {
+      padding: var(--space-lg) 1.25rem;
+    }
+
+    .articleTitle {
+      font-size: 1.5rem;
+    }
+  }
+</style>
