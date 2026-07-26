@@ -1,5 +1,6 @@
 ---
 import styles from './Hero.module.css'
+import { RECRUITING_OPEN } from '../config'
 
 const catchphrase = ['明', '日', 'の', '仕', '事', 'に', '、']
 const mainText = [
@@ -58,10 +59,12 @@ const mainText = [
       </div>
 
       <div class={styles.heroCta}>
-        <a href="#apply" class={`${styles.btn} ${styles.btnPrimary}`}>
-          <span>無料ではじめる</span>
-          <span class={styles.btnNote}>※少人数制</span>
-        </a>
+        {RECRUITING_OPEN && (
+          <a href="#apply" class={`${styles.btn} ${styles.btnPrimary}`}>
+            <span>無料ではじめる</span>
+            <span class={styles.btnNote}>※少人数制</span>
+          </a>
+        )}
         <a href="#service" class={`${styles.btn} ${styles.btnSecondary}`}>
           サービス詳細
         </a>

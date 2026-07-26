@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from './Diagnosis.module.css'
-import { LINE_OPENCHAT_URL } from '../config'
+import { LINE_OPENCHAT_URL, RECRUITING_OPEN } from '../config'
 
 // 申込導線は「LINE先行」。無料コミュニティ（オープンチャット）参加URLは src/config.ts に集約。
 const LINE_URL = LINE_OPENCHAT_URL
@@ -251,9 +251,15 @@ export default function Diagnosis() {
             </div>
 
             <div className={styles.resultCta}>
-              <a className={styles.primaryBtn} href={LINE_URL}>
-                明日から、ひとりで走らない（無料で参加）
-              </a>
+              {RECRUITING_OPEN ? (
+                <a className={styles.primaryBtn} href={LINE_URL}>
+                  明日から、ひとりで走らない（無料で参加）
+                </a>
+              ) : (
+                <p className={styles.companionText}>
+                  現在、新規のご案内を一時お休みしています。再開の際はこのページでお知らせします。
+                </p>
+              )}
               <a className={styles.secondaryBtn} href="/">
                 シゴトモを詳しく見る
               </a>

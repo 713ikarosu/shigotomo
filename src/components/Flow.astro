@@ -1,5 +1,6 @@
 ---
 import styles from './FlowAndFAQ.module.css'
+import { RECRUITING_OPEN } from '../config'
 
 const steps = [
   { number: '01', title: '無料の学習コミュニティに参加', description: 'まずはLINEのオープンチャット（無料の学習コミュニティ）に参加するだけ。参加は無料で、この時点でお申し込みにはなりません。続け方のヒントや、記事の先行公開を受け取れます。' },
@@ -17,6 +18,13 @@ const steps = [
         <span class={styles.titleJa}>ご利用の流れ</span>
       </h2>
     </div>
+
+    {!RECRUITING_OPEN && (
+      <p class={styles.flowNotice}>
+        現在、新規のご案内を一時お休みしています。再開の際はこのページでお知らせします。<br />
+        以下は再開後のご利用の流れです。
+      </p>
+    )}
 
     <div class={styles.flowSteps}>
       {steps.map((step, index) => (
