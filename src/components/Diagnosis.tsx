@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from './Diagnosis.module.css'
+import { LINE_OPENCHAT_URL } from '../config'
 
-// TODO: 公式LINEの友だち追加URLに差し替え（プロトタイプ中はトップへ）
-const LINE_URL = '/#apply'
+// 申込導線は「LINE先行」。無料コミュニティ（オープンチャット）参加URLは src/config.ts に集約。
+const LINE_URL = LINE_OPENCHAT_URL
 
 type TypeKey = 'overload' | 'notime' | 'threedays' | 'tsundoku'
 
@@ -251,7 +252,7 @@ export default function Diagnosis() {
 
             <div className={styles.resultCta}>
               <a className={styles.primaryBtn} href={LINE_URL}>
-                明日から、ひとりで走らない（LINEではじめる）
+                明日から、ひとりで走らない（無料で参加）
               </a>
               <a className={styles.secondaryBtn} href="/">
                 シゴトモを詳しく見る

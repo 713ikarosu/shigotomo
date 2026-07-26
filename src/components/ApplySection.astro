@@ -1,7 +1,6 @@
 ---
 import styles from './ApplySection.module.css'
-
-const GOOGLE_FORM_URL = 'https://forms.gle/CMNT9M75eAfSzxB18'
+import { LINE_OPENCHAT_URL } from '../config'
 ---
 
 <section id="apply" class={styles.apply}>
@@ -12,17 +11,22 @@ const GOOGLE_FORM_URL = 'https://forms.gle/CMNT9M75eAfSzxB18'
       </h2>
       <p>
         根性でもモチベーションでもなく、隣に伴走者がいる仕組みで学習を続けたい方へ。<br />
-        まずはお申し込みフォームから、あなたの状況を聞かせてください。
+        まずは、無料の学習コミュニティ（LINEオープンチャット）に参加するだけ。<br />
+        参加は無料で、この時点でお申し込みにはなりません。<br />
+        続けたくなったら、個別の無料面談（LINE通話）でゆっくりお話ししましょう。
       </p>
       <a
-        href={GOOGLE_FORM_URL}
+        href={LINE_OPENCHAT_URL}
         target="_blank"
         rel="noopener noreferrer"
         class={styles.btnPrimary}
       >
-        <span>お申し込みする</span>
+        <span>無料の学習コミュニティに参加（LINE）</span>
       </a>
-      <p class={styles.applyNote}>※月15〜20名の人数制限あり。定員に達した場合はお待ちいただきます。</p>
+      <p class={styles.applyNote}>
+        ※参加・相談・面談はすべて無料です。有料プランは、面談で「続けられそう」と相互に合意した方にのみご案内し、決済をもって正式なお申し込みとなります。<br />
+        ※少人数制のため、定員に達した場合は空きが出るまでお待ちいただくことがあります。
+      </p>
     </div>
   </div>
 </section>
