@@ -3,6 +3,17 @@
     background: var(--color-shiro);
 }
 
+.flowNotice {
+    max-width: 640px;
+    margin: 0 auto var(--space-lg);
+    padding: 1rem 1.5rem;
+    background: var(--color-kinari);
+    border-left: 3px solid var(--color-shu);
+    color: var(--color-usuzumi);
+    font-size: 0.95rem;
+    text-align: center;
+}
+
 .sectionHeader {
     text-align: center;
     margin-bottom: var(--space-xl);

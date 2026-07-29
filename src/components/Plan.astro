@@ -1,5 +1,6 @@
 ---
 import styles from './Plan.module.css'
+import { RECRUITING_OPEN } from '../config'
 
 const plans = [
   {
@@ -115,12 +116,14 @@ const plans = [
           </div>
 
           <div class={styles.planCta}>
-            {plan.ctaHref ? (
+            {plan.ctaHref && RECRUITING_OPEN ? (
               <a href={plan.ctaHref} class={styles.btnPrimary}>
                 <span>{plan.ctaLabel}</span>
               </a>
             ) : (
-              <span class={styles.btnDisabled}>{plan.ctaLabel}</span>
+              <span class={styles.btnDisabled}>
+                {plan.ctaHref ? '現在、新規募集を一時お休み中' : plan.ctaLabel}
+              </span>
             )}
           </div>
         </div>
