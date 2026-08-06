@@ -9,7 +9,8 @@ const {
   description = '資格取得・リスキリングを続けたい社会人向けの伴走型学習支援サービス。勉強内容は教えません。学習計画は医師（Dr.チャンマー）が設計、毎日の伴走は元小学校教師（つっちゃん先生）が担当。「今日やること」が毎日決まっている状態をつくります。月額12,000円〜・少人数制。',
 } = Astro.props
 
-const siteUrl = 'https://shigotomo.vercel.app'
+const siteUrl = 'https://shigotomo.com'
+const pageUrl = new URL(Astro.url.pathname, siteUrl).href
 ---
 
 <!doctype html>
@@ -20,7 +21,7 @@ const siteUrl = 'https://shigotomo.vercel.app'
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={siteUrl} />
+    <link rel="canonical" href={pageUrl} />
     <link rel="icon" type="image/png" href="/favicon.png" />
 
     <!-- Google Fonts preconnect -->
@@ -37,7 +38,7 @@ const siteUrl = 'https://shigotomo.vercel.app'
     <!-- OG / Twitter -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja_JP" />
-    <meta property="og:url" content={siteUrl} />
+    <meta property="og:url" content={pageUrl} />
     <meta property="og:site_name" content="シゴトモ" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
