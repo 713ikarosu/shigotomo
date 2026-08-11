@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 独自ドメイン取得後にURLを差し替える
+Sitemap: https://shigotomo.pages.dev/sitemap-index.xml
